@@ -1,5 +1,6 @@
 ---
-import "../styles/global.css";
+import "@/styles/global.css";
+import { ModeToggle } from "@/components/ModeToggle";
 ---
 
 <html lang="en">
@@ -44,8 +45,11 @@ import "../styles/global.css";
     }
   </script>
 
-  <body class="ibm-plex font-mono">
+  <body
+    class="ibm-plex font-mono dark:bg-zinc-950 bg-white text-white: dark:text-zinc-100"
+  >
     <div class="container mx-auto">
+      <ModeToggle client:load />
       <h1 class="text-5xl">Bengineering</h1>
       <a href="/about">about</a>
       <a href="/blog">blog</a>
