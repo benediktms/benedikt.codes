@@ -9,7 +9,7 @@ import { Link } from "./ui/link";
 
 export const Menubar = () => {
   return (
-    <NavigationMenu className="my-3 w-full min-w-full">
+    <NavigationMenu className="my-3 md:mb-16 sm:mb-8 min-w-full justify-start">
       <NavigationMenuList>
         <div className="flex justify-between items-center w-full">
           <NavigationMenuItem className="md:w-96 xs:w-48">
@@ -17,7 +17,7 @@ export const Menubar = () => {
               <NavigationMenuLink>Bengineering</NavigationMenuLink>
             </a>
           </NavigationMenuItem>
-          <div className="flex">
+          <div className="flex items-center">
             <NavigationMenuItem>
               <Link href="/blog" className="mr-3">
                 <NavigationMenuLink>blog</NavigationMenuLink>
@@ -28,10 +28,10 @@ export const Menubar = () => {
                 <NavigationMenuLink>about</NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
+            <NavigationMenuItem>
+              <ModeToggle />
+            </NavigationMenuItem>
           </div>
-          <NavigationMenuItem>
-            <ModeToggle />
-          </NavigationMenuItem>
         </div>
       </NavigationMenuList>
     </NavigationMenu>

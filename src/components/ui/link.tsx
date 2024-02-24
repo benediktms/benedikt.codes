@@ -9,7 +9,7 @@ export const Link = ({ href, className, children, ...props }: Props) => {
       {...props}
       href={href}
       className={cn(
-        "text-green-600 dark:text-green-400 hover:underline",
+        "text-green-600 dark:text-green-400 hover:underline hover:cursor-pointer",
         className,
       )}
     >
