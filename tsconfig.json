@@ -1,9 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "/Users/benediktschnatterbeck/code/bengineering",
+    "baseUrl": "/Users/benediktschnatterbeck/code/benedikt.codes",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@config": ["src/config.ts"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

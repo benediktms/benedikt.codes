@@ -14,17 +14,17 @@ export const Menubar = () => {
         <div className="flex justify-between items-center w-full">
           <NavigationMenuItem className="md:w-96 xs:w-48">
             <a className="text-3xl mr-10 hover:underline" href="/">
-              <NavigationMenuLink>Bengineering</NavigationMenuLink>
+              <NavigationMenuLink>&lt;benedikt.codes /&gt;</NavigationMenuLink>
             </a>
           </NavigationMenuItem>
           <div className="flex items-center">
             <NavigationMenuItem>
-              <Link href="/blog" className="mr-3">
+              <Link color="green" href="/blog" className="mr-3">
                 <NavigationMenuLink>blog</NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/about" className="mr-3">
+              <Link color="green" href="/about" className="mr-3">
                 <NavigationMenuLink>about</NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
