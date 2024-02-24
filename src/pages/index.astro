@@ -1,6 +1,6 @@
 ---
 import "@/styles/global.css";
-import { ModeToggle } from "@/components/ModeToggle";
+import { Menubar } from "@/components/Menubar";
 ---
 
 <html lang="en">
@@ -46,13 +46,10 @@ import { ModeToggle } from "@/components/ModeToggle";
   </script>
 
   <body
-    class="ibm-plex font-mono dark:bg-zinc-950 bg-zinc-100 text-zinc-700 dark:text-zinc-400"
+    class="ibm-plex font-mono dark:bg-zinc-950 bg-white text-zinc-700 dark:text-zinc-400"
   >
-    <div class="container mx-auto">
-      <ModeToggle client:load />
-      <h1 class="text-5xl">Bengineering</h1>
-      <a class="text-green-600 dark:text-green-400" href="/about">about</a>
-      <a class="text-green-600 dark:text-green-400" href="/blog">blog</a>
+    <div class="mx-auto">
+      <Menubar client:load />
     </div>
   </body>
 </html>
