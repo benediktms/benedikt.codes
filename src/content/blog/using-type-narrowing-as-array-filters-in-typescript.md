@@ -1,5 +1,5 @@
 ---
-title: 'Using type narrowing as array filters in Typescript'
+title: 'Using type narrowing as array filters in TypeScript'
 pubDate: 2024-02-25
 description: 'How to use type narrowing to correclty filter a collection of objects in TypeScript'
 tags: ['typescript']
