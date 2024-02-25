@@ -65,7 +65,7 @@ How can we get around this? Since the compiler can't dynamically create new type
 we need to handle this. A good way to do this is via TypeScript
 [type narrowing]('https://www.typescriptlang.org/docs/handbook/2/narrowing.html#typeof-type-guards')
 
-### Niche helper function
+### A helper function
 
 In order to tell TypeScript that we want to filter for cats that have a name we can
 use [type predicates]('https://www.typescriptlang.org/docs/handbook/2/narrowing.html#using-type-predicates')
@@ -80,7 +80,7 @@ function catWithName(
 }
 ```
 
-Let's look at what this actually does. Type predicates let us create user defined
+Type predicates let us create user defined
 type guards, similar to the standard type guards we have for primitives in JavaScript
 like `typeof x === 'string'`. With the above function the compiler will know that
 anything `cat` that gets given to this function must have a name property. With this
@@ -94,7 +94,7 @@ While this is fine, it would be good to use a utility function that works on any
 of objects, not just cats. With type predicates and some cool use of generics we can
 do just that:
 
-### All-purpose helper function
+### A more generic helper function
 
 ```ts
 type PropertyNotNullable<T, TKey extends keyof T> = T & {
@@ -108,7 +108,7 @@ function propertyIsNotNullOrUndefined<T, TKey extends keyof T>(key: TKey) {
 }
 ```
 
-Let's look at what this actually does: Our function takes 1 argument: `key` (`TKey`) which is
+Our function takes 1 argument: `key` (`TKey`) which is
 a property of whichever object (`T`) our function is generic over. We then
 return another function that acts as predicate similar to the previous example, but
 instead of checking for a specific property like we did before with `name`, we use
