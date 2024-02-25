@@ -1,0 +1,51 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Link } from "@/components/ui/link";
+---
+
+<BaseLayout pageTitle="about">
+  <h1 class="text-3xl mb-10 font-bold">About</h1>
+  <h2 class="text-xl mb-3 font-bold">Who am I?</h2>
+  I'm Benedikt. I'm a fullstack software engieer currently working at <Link
+    color="green"
+    href="https://gotu.io">GotU.io</Link
+  >. I work mostly in the JavaScript/TypeScript ecosystem with Node and React,
+  but have also worked with Ruby in the past. I also work with GraphQL,
+  Postgres, and various infrastructure technologies such as Docker. In my spare
+  time I dablle around in Rust, and build games in Unreal Engine with C++ and
+  other engines and languages. But outside of coding I also enjoy coffee, green
+  tea, dogs, skiing, reading, running, and lately also a bit of maths. I also
+  know how to exit vim.
+  <h2 class="text-xl mb-3 mt-10 font-bold">What's this place all about?</h2>
+  <p class="mb-3">
+    I decided to create this website because I wanted a public place where I
+    could record my thoughts and experiences.
+  </p>
+  <ol class="list-decimal ml-10">
+    <li class="list-item">Learning in public</li>
+    <p class="mb-4">
+      This is a term coined (I think) by <Link
+        color="green"
+        href="https://www.swyx.io/learn-in-public">swyx</Link
+      >. The core idea is to shift from learning in private, where individuals
+      consume content without contributing, to a more public, interactive form
+      of learning.
+    </p>
+    <li class="list-item">Self documentation</li>
+    <p class="mb-4">
+      A lot of the time, when I'm working on a tough problem, or simply in
+      unfamiliar territory, I want to hold on to how arrived at my solution.
+      Memory, is ephemreal, and unrealiabl (just like RAM) and I like having a
+      place where I can collect these things for future me (and anyone else that
+      stumbles upon them).
+    </p>
+    <li class="list-item">A reflective outlet</li>
+    <p class="mb-4">
+      This one kind of works like <Link
+        color="green"
+        href="https://en.wikipedia.org/wiki/Rubber_duck_debugging"
+        >rubber duck debugging</Link
+      > or journaling, where writing about something can help you understand it.
+    </p>
+  </ol>
+</BaseLayout>

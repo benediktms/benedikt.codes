@@ -1,0 +1,26 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Link } from "@/components/ui/link";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("blog");
+
+// TODO: add a tag selection section that redirects to the relevant tag page
+---
+
+<BaseLayout pageTitle="blog">
+  <h1 class="text-xl mb-3 font-bold">Blog</h1>
+  <ul>
+    {
+      allPosts.map((post) => {
+        return (
+          <li>
+            <Link color="yellow" href={`/blog/${post.slug}`}>
+              {post.data.title}
+            </Link>
+          </li>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>

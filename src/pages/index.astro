@@ -1,16 +1,24 @@
 ---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { Link } from "@/components/ui/link";
+import { INFO } from "@/config";
 
+const { email, repoLink, twitterHandle, twitterLink } = INFO;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Bengineering</h1>
-  </body>
-</html>
+<BaseLayout>
+  <h1 class="text-3xl mb-3 font-bold">Hi, I'm Benedikt</h1>
+  <p class="mb-3">
+    Welcome to my corner of the internet. Here I write about my experiences in
+    building software, the things I learn along the way and other things that
+    interest me. If you see anything that's factually wrong, or you disagree
+    with anything, call me out on it either on this website's <Link
+      color="green"
+      href={repoLink}>repo</Link
+    > or on X at <Link color="green" href={twitterLink}>{twitterHandle}</Link>,
+    or if you're old school, you can also send me an email <Link
+      color="green"
+      href={`mailto:${email}`}>{email}</Link
+    >.
+  </p>
+</BaseLayout>
