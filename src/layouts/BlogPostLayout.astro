@@ -7,7 +7,7 @@ const { frontmatter } = Astro.props;
 const publishDate = dayjs(frontmatter.pubDate).format(SITE.dateFormat);
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={frontmatter.pageTitle}>
   <h1 class="text-xl mb-3 font-bold">{frontmatter.title}</h1>
   <p class="mt-4 text-sm">Published on: {publishDate}</p>
   <p class="mb-4">tags: {}</p>

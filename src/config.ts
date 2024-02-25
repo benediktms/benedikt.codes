@@ -6,8 +6,6 @@ export const INFO = {
   email: "benediktms@hey.com",
 };
 
-export type PostTag = "typescript";
-
 export const SITE = {
   dateFormat: "DD-MM-YYYY",
 };

@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
 title: 'Using type narrowing as array filters in Typescript'
 pubDate: 2024-02-25
 description: 'How to use type narrowing to correclty filter a collection of objects in TypeScript'
@@ -44,7 +43,7 @@ However you will quickly notice that the compiler will not allow you to do this.
 TypeScript is smart enough to know that it can't process data that is optional on some
 objects in the array:
 
-```log
+```
 Property 'name' does not exist on type '{ age: number; }'.(2339)
 ```
 
