@@ -51,9 +51,11 @@ const { pageTitle } = Astro.props;
   </script>
 
   <body
-    class="ibm-plex font-mono dark:bg-zinc-950 bg-white text-zinc-700 dark:text-zinc-300"
+    class="ibm-plex font-mono dark:bg-zinc-950 bg-white text-zinc-700 dark:text-zinc-300 container"
   >
-    <div class="mx-4 sm:mx-12 md:mx-24 lg:mx-44">
+    <div
+      class="mx-4 sm:mx-12 md:mx-24 lg:mx-44 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg"
+    >
       <Menubar client:load />
       <slot />
     </div>
