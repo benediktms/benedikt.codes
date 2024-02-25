@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Link } from "@/components/ui/link";
+import { type PostTag } from "@/config";
+import type { MarkdownInstance } from "astro";
+import { makeArrayWithAllItems } from "@/lib/makeArrayWithAllItems";
+
+export async function getStaticPaths() {
+  const allPosts: MarkdownInstance<Record<string, any>>[] =
+    await Astro.glob("../blog/*.md");
+
+  const tags = makeArrayWithAllItems<PostTag>()(["typescript"]);
+
+  return tags.map((tag) => ({
+    params: { tag },
+    props: { posts: allPosts },
+  }));
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+const filteredPosts = posts.filter((post) =>
+  post.frontmatter.tags?.includes(tag),
+);
+---
+
+<BaseLayout pageTitle={tag}>
+  <p class="mb-4">Posts tagged with '{tag}'</p>
+  <ul>
+    {
+      filteredPosts.map((post) => (
+        <li>
+          <Link color="yellow" href={post.url}>
+            {post.frontmatter.title}
+          </Link>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

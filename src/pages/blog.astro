@@ -1,13 +1,25 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Link } from "@/components/ui/link";
+
+const allPosts = await Astro.glob("./blog/*.md");
+
+// TODO: add a tag selection section that redirects to the relevant tag page
 ---
 
 <BaseLayout pageTitle="blog">
   <h1 class="text-xl mb-3 font-bold">Blog</h1>
-  <ol>
-    <li>
-      <Link color="yellow" href="blog/post-1">post 1</Link>
-    </li>
-  </ol>
+  <ul>
+    {
+      allPosts.map((post) => {
+        return (
+          <li>
+            <Link color="yellow" href={post.url}>
+              {post.frontmatter.title}
+            </Link>
+          </li>
+        );
+      })
+    }
+  </ul>
 </BaseLayout>
