@@ -1,18 +1,23 @@
 ---
 import { SITE } from "@/config";
+import type { PostsCollection } from "@/content/collections";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import dayjs from "dayjs";
 
-const { frontmatter } = Astro.props;
-const publishDate = dayjs(frontmatter.pubDate).format(SITE.dateFormat);
+interface Props {
+  data: PostsCollection;
+}
+
+const { data } = Astro.props;
+const publishDate = dayjs(data.pubDate).format(SITE.dateFormat);
 ---
 
-<BaseLayout pageTitle={frontmatter.pageTitle}>
-  <h1 class="text-xl mb-3 font-bold">{frontmatter.title}</h1>
+<BaseLayout pageTitle={data.title}>
+  <h1 class="text-xl mb-3 font-bold">{data.title}</h1>
   <p class="mt-4 text-sm">Published on: {publishDate}</p>
-  <p class="mb-4">tags: {}</p>
+  {data.tags.length && <p>tags: {data.tags}</p>}
   <article
-    class="prose dark:prose-invert prose-a:text-blue-600 prose-a:dark:text-blue-400"
+    class="mt-4 prose dark:prose-invert prose-a:text-blue-600 prose-a:dark:text-blue-400"
   >
     <slot />
   </article>
