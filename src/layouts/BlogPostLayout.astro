@@ -14,7 +14,7 @@ const publishDate = dayjs(data.pubDate).format(SITE.dateFormat);
 
 <BaseLayout pageTitle={data.title}>
   <h1 class="text-xl mb-3 font-bold">{data.title}</h1>
-  <p class="mt-4 text-sm">Published on: {publishDate}</p>
+  <time datetime={publishDate.toString()} class="mt-4 text-sm">Published on: {publishDate}</time>
   {data.tags.length && <p>tags: {data.tags}</p>}
   <article
     class="mt-4 prose dark:prose-invert prose-a:text-blue-600 prose-a:dark:text-blue-400"
