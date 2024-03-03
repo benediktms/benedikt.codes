@@ -1,8 +1,8 @@
 ---
-title: 'Using type narrowing as array filters in TypeScript'
+title: "Using type narrowing as array filters in TypeScript"
 pubDate: 2024-02-25
-description: 'How to use type narrowing to correclty filter a collection of objects in TypeScript'
-tags: ['typescript']
+description: "How to use type narrowing to correclty filter a collection of objects in TypeScript"
+tags: ["typescript"]
 ---
 
 Sometimes you have a collection of objects that contain some optional properties.
@@ -16,12 +16,12 @@ type Cat = {
 };
 
 const cat1 = {
-  name: 'Garfield',
+  name: "Garfield",
   age: 3,
 };
 
 const cat2 = {
-  name: 'Puss In Boots',
+  name: "Puss In Boots",
   age: 5,
 };
 
@@ -36,7 +36,7 @@ if you need to get all the cats that are lucky enough to have a name, you might
 intuitively do something like this:
 
 ```ts
-const filteredCats = cats.filter(cat => !!cat.name);
+const filteredCats = cats.filter((cat) => !!cat.name);
 ```
 
 However you will quickly notice that the compiler will not allow you to do this.
@@ -58,7 +58,7 @@ those values. But if we need this data for further processing (e.g. mapping
 after filtering) this still won't work. For example:
 
 ```ts
-filteredCats.map(cat => cat.name.split()); // Object is possibly 'undefined'.(2532)
+filteredCats.map((cat) => cat.name.split()); // Object is possibly 'undefined'.(2532)
 ```
 
 How can we get around this? Since the compiler can't dynamically create new types,
@@ -74,8 +74,8 @@ to be using the type predicate syntax:
 
 ```ts
 function catWithName(
-  cat: Cat
-): cat is Omit<Cat, 'name'> & Required<Pick<Cat, 'name'>> {
+  cat: Cat,
+): cat is Omit<Cat, "name"> & Required<Pick<Cat, "name">> {
   return !!cat.name;
 }
 ```
@@ -103,7 +103,7 @@ type PropertyNotNullable<T, TKey extends keyof T> = T & {
 
 function propertyIsNotNullOrUndefined<T, TKey extends keyof T>(key: TKey) {
   return function (obj: T): obj is PropertyNotNullable<T, TKey> {
-    return obj[key] !== null && typeof obj[key] !== 'undefined';
+    return obj[key] !== null && typeof obj[key] !== "undefined";
   };
 }
 ```
@@ -133,7 +133,7 @@ since the compiler knows that our argument has to be a property of whatever it i
 generic over, we even get that sweet auto-complete.
 
 ```ts
-filteredCats = cats.filter(propertyIsNotNullOrUndefined('name'));
+filteredCats = cats.filter(propertyIsNotNullOrUndefined("name"));
 ```
 
 We can now continue processing the `cats` array:
@@ -141,13 +141,13 @@ We can now continue processing the `cats` array:
 ```ts
 const filteredCats = cats
   .filter(propertyIsNotNullOrUndefined)
-  .map(cat => cat.name.split()); // this now works
+  .map((cat) => cat.name.split()); // this now works
 ```
 
 By the way this also works for arrays that where each item can be `null` or `undefined`:
 
 ```ts
 function isNotNullOrUndefined<T>(val: T): val is NonNullable<T> {
-  return val !== null && typeof val !== 'undefined';
+  return val !== null && typeof val !== "undefined";
 }
 ```
