@@ -1,6 +1,6 @@
 ---
-import { SITE } from "@/config";
-import type { PostsCollection } from "@/content/collections";
+import { SITE } from "@/globals";
+import type { PostsCollection } from "@/content/config";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import dayjs from "dayjs";
 
@@ -19,8 +19,9 @@ const publishDate = dayjs(data.pubDate).format(SITE.dateFormat);
   >
   {data.tags.length && <p>tags: {data.tags.join(", ")}</p>}
   <article
-    class="mt-4 prose dark:prose-invert prose-a:text-blue-600 prose-a:dark:text-blue-400"
+    class="mt-4 prose dark:prose-invert prose-a:text-blue-600 prose-a:dark:text-blue-400 prose-img:mx-auto"
   >
     <slot />
   </article>
 </BaseLayout>
+@/globals @/content/config
