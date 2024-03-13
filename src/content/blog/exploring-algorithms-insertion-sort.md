@@ -14,8 +14,9 @@ To explore this algorithm I'll be writing an implementation in Rust, but I will 
 the standard library and I will also implement some built in functions myself in order to fully
 understand what the algorithm is doing, but I will compare my implementation to a more idiomatic
 solution as well. Additionally, Rust's borrow checker gives me some nice guard rails to both 
-understand how the memory is behaving while stopping me from doing stupid things. It's also a nice
-exercise to learn more about the language.
+understand how the code is (not) memory safe and to me from doing stupid things. It's also a nice
+exercise to simply learn more about the language, and I'll nerd out about some implementation details
+whilst examining the algorithm.
 
 ## Insertion sort
 The insertion sort is _"an efficient algorithm for sorting a small number of elements"_[^1]. A common 
