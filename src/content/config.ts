@@ -10,7 +10,7 @@ const blogSchema = z.object({
       alt: z.string(),
     })
     .optional(),
-  tags: z.array(z.enum(["rust", "typescript", "svelte", "tailwindcss"])),
+  tags: z.array(z.enum(["rust", "typescript", "svelte", "tailwindcss", "algorithms"])),
 });
 
 export type PostsCollection = z.infer<typeof blogSchema>;
