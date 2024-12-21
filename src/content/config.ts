@@ -1,3 +1,4 @@
+import { glob } from "astro/loaders";
 import { z, defineCollection } from "astro:content";
 
 const blogSchema = z.object({
@@ -10,13 +11,15 @@ const blogSchema = z.object({
       alt: z.string(),
     })
     .optional(),
-  tags: z.array(z.enum(["rust", "typescript", "svelte", "tailwindcss", "algorithms"])),
+  tags: z.array(
+    z.enum(["rust", "typescript", "svelte", "tailwindcss", "algorithms"]),
+  ),
 });
 
 export type PostsCollection = z.infer<typeof blogSchema>;
 
 const blog = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
   schema: blogSchema,
 });
 
