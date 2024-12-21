@@ -50,6 +50,8 @@ const { pageTitle } = Astro.props;
 
   <script is:inline>
     const getThemePreference = () => {
+      if (typeof window === "undefined") return null;
+
       if (
         typeof localStorage !== "undefined" &&
         localStorage.getItem("theme")
@@ -63,19 +65,29 @@ const { pageTitle } = Astro.props;
 
       return "light";
     };
+
+    // Set the theme on initial load
     const isDark = getThemePreference() === "dark";
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-    if (typeof localStorage !== "undefined") {
-      const observer = new MutationObserver(() => {
-        const isDark = document.documentElement.classList.contains("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-      });
-      observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ["class"],
-      });
-    }
+    const setTheme = () => {
+      const isDark = getThemePreference() === "dark";
+      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+      if (typeof localStorage !== "undefined") {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+      }
+    };
+
+    // Ensure the theme is applied after client side routing
+    document.addEventListener("astro:after-swap", setTheme);
   </script>
 
   <body
