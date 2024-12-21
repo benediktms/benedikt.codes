@@ -27,7 +27,7 @@ const filteredPosts = posts.filter((post) => post.data.tags?.includes(tag));
     {
       filteredPosts.map((post) => (
         <li>
-          <Link color="yellow" href={post.slug}>
+          <Link color="yellow" href={post.filePath}>
             {post.data.title}
           </Link>
         </li>
