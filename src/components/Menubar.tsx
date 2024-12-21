@@ -23,7 +23,7 @@ export const Menubar = () => {
               home
             </Link>
           </NavigationMenuItem>
-          <div className="flex items-center">
+          <div className="flex items-center space-x-3">
             <NavigationMenuItem>
               <Link color="green" href="/blog" className="mr-3">
                 <NavigationMenuLink>blog</NavigationMenuLink>
