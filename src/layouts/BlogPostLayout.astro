@@ -3,6 +3,7 @@ import { SITE } from "@/globals";
 import type { PostsCollection } from "@/content/config";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import dayjs from "dayjs";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   data: PostsCollection;
@@ -11,6 +12,10 @@ interface Props {
 const { data } = Astro.props;
 const publishDate = dayjs(data.pubDate).format(SITE.dateFormat);
 ---
+
+<head>
+  <ClientRouter />
+</head>
 
 <BaseLayout pageTitle={data.title}>
   <h1 class="text-xl mb-3 font-bold">{data.title}</h1>

@@ -15,7 +15,7 @@ const allPosts = await getCollection("blog");
       allPosts.map((post) => {
         return (
           <li>
-            <Link color="yellow" href={`/blog/${post.slug}`}>
+            <Link color="yellow" href={`/blog/${post?.filePath}`}>
               {post.data.title}
             </Link>
           </li>
