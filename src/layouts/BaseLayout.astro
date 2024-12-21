@@ -2,10 +2,9 @@
 import "@/styles/global.css";
 import { Menubar } from "@/components/Menubar";
 import { INFO } from "@/globals";
+import { ClientRouter } from "astro:transitions";
 
 const { pageTitle } = Astro.props;
-
-// TODO: add view transitions but make sure that they are consistent with the dark mode
 ---
 
 <html lang="en">
@@ -21,6 +20,8 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle ?? INFO.siteName}</title>
+
+    <ClientRouter />
 
     <link
       rel="stylesheet"
