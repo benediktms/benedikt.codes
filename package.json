@@ -10,34 +10,34 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.5",
-    "@astrojs/mdx": "^2.1.1",
-    "@astrojs/react": "^3.0.10",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/tailwind": "^5.1.0",
-    "@radix-ui/react-dropdown-menu": "^2.0.6",
-    "@radix-ui/react-navigation-menu": "^1.1.4",
-    "@radix-ui/react-slot": "^1.0.2",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^4.0.3",
+    "@astrojs/react": "^4.1.2",
+    "@astrojs/rss": "^4.0.10",
+    "@astrojs/tailwind": "^5.1.4",
+    "@radix-ui/react-dropdown-menu": "^2.1.4",
+    "@radix-ui/react-navigation-menu": "^1.2.3",
+    "@radix-ui/react-slot": "^1.1.1",
     "@types/react": "^18.2.58",
     "@types/react-dom": "^18.2.19",
-    "astro": "^4.4.3",
+    "astro": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "dayjs": "^1.11.10",
-    "lucide-react": "^0.338.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "lucide-react": "^0.469.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "rehype-katex": "^7.0.0",
     "remark-math": "^6.0.0",
     "sharp": "^0.33.2",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^3.4.17",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0"
+    "prettier-plugin-astro": "^0.14.1"
   }
 }
